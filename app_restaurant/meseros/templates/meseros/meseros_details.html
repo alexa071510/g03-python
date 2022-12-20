@@ -1,0 +1,25 @@
+{% extends "meseros/base_generic.html"%}
+
+{% block content %}
+
+    <p>Lista de meseros en la aplicacion</p>
+    <div class="card-body">
+        <form action="" method="post"></form>
+         {% csrf_token %}
+        <table class="table table-striped">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Descripción</th>
+            </thead>
+            <tbody>
+                {% for meseros in data %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td><p>{{ meseros.nombre }} tiene {{meseros.edad }} años y es de {{ meseros.nacionalidad }}</p></td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

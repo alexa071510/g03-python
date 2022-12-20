@@ -1,0 +1,15 @@
+{% extends "platos/base_generic.html"%}
+
+{% block content %}
+    <div class="card-body">
+        <h4>Editar </h4>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <a class="btn btn-danger" type="button" href="{% url 'platos_list' %}">Cancelar</a>
+            <button type="submit" class="btn btn-success" >Guardar </button>
+        </form>
+    </div>
+{% endblock %}

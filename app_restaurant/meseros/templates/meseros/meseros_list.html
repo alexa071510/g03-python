@@ -1,0 +1,99 @@
+{% extends "meseros/base_generic.html"%}
+
+{% block content %}
+
+    {#<div><a href="http://unmsm.edu.pe"><strong>UNMSM</strong></a></div>#}
+    <p>Lista de meseros en la aplicacion</p>
+{#    <p><strong>Nombre de owner:</strong>{{ data.nombre_owner }}</p>#}
+{#    {% if data.nombre_owner %}#}
+{#        <div>#}
+{#            <p><strong>Nombre de owner:</strong>{{ data.nombre_owner }}</p>#}
+{#        </div>#}
+{##}
+{#    {% else %}#}
+{#        <div style="align-content: center">#}
+{#            <strong>Nombre de owner:</strong><p class ="null">Sin nombre</p>#}
+{#        </div>#}
+{#    {% endif %}#}
+{##}
+{#    <div>#}
+{#       {% if data.edad and data.dni %}#}
+{#           <p><strong>Edad de owner:</strong>{{ data.edad }}</p>#}
+{#           <p>El dato de edad del owner es correcta </p>#}
+{#       {% endif %}#}
+{#    </div>#}
+{##}
+{#    <div>#}
+{#           <p><strong>Pais de owner:</strong>{{ data.pais }}</p>#}
+{#    </div>#}
+{##}
+{#        <div>#}
+{#           <p><strong>DNI de owner:</strong>{{ data.dni }}</p>#}
+{#    </div>#}
+{##}
+{#    {% if data.dni%}#}
+{#        {% if not data.vigente %}#}
+{#            <h4>¡Su pase ya no está vigente!</h4>#}
+{#        {% endif %}#}
+{#    {% endif %}#}
+{#    <ul>#}
+{#        {% for owner in data %}#}
+{#            <li>#}
+{#               <p><strong>Nombre de owner:</strong>{{ owner.nombre_owner }}</p>#}
+{#               <p><strong>Edad:</strong>{{ owner.edad }}</p>#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+    <ul>
+        {% for meseros in data  reversed %}
+            <li>
+{#              {% ifequal owner.nombre_owner 'Daniel' %}#}
+{#                  <p>Existe un owner con el nombre 'Daniel'</p>#}
+                 <p><strong>Nombre de mesero:</strong>{{ meseros.nombre }}</p>
+                 <p><strong>Procedencia:</strong>{{ meseros.nacionalidad }}</p>
+                 <p><strong>Edad:</strong>{{ meseros.edad }}</p>
+{#              {% endifequal %}#}
+            </li>
+        {% endfor %}
+    </ul>
+
+{#    <h2>Aplicando filtros </h2>#}
+{##}
+{#    <h5>Uso de filtro "LOWER ,SLUGIFY"</h5>#}
+{#      <ul>#}
+{#         {% for owner in data %}#}
+{#             <li>#}
+{##}
+{#                 <p><strong>Nombre de owner:</strong>{{ owner.nombre|lower|slugify }}</p>#}
+{##}
+{#             </li>#}
+{#         {% endfor %}#}
+{#     </ul>#}
+{##}
+{#    <h5>Uso de filtro "LENGTH"</h5>#}
+{#    <h6>La cantidad de owners actualmente es de:{{ data|length }}</h6>#}
+{##}
+{#    <h5>Uso de filtro "UPPER"</h5>#}
+{#      <ul>#}
+{#         {% for owner in data %}#}
+{#             <li>#}
+{##}
+{#                 <p><strong>Nombre de owner:</strong>{{ owner.nombre|upper }}</p>#}
+{##}
+{#             </li>#}
+{#         {% endfor %}#}
+{#      </ul>#}
+{##}
+{#    <h5>Uso de filtro "CUT"</h5>#}
+{#      <ul>#}
+{#         {% for owner in data %}#}
+{#             <li>#}
+{##}
+{#                 <p><strong>Nombre de owner:</strong>{{ owner.nombre|cut:" " }}</p>#}
+{##}
+{#             </li>#}
+{#         {% endfor %}#}
+{#      </ul>#}
+{##}
+{% endblock %}

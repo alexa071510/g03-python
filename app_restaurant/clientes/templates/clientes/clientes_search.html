@@ -1,0 +1,24 @@
+{% extends "clientes/base_generic.html"%}
+
+{% block content %}
+    <div>
+        <form action="." method="GET">
+            <label>Busqueda:</label>
+            <input type="text" name="q" value="{{ query|escape }}">
+        </form>
+    </div>
+    {% if query %}
+        <h2>Resultados para "{{ query|escape }}"</h2>
+
+        {% if data %}
+            <ul>
+               {% for clientes in data %}
+                   <li>{{ clientes.nombre  }} es de {{ clientes.apellido }} y tiene {{ clientes.dni}} años</li>
+               {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron clientes con la conincidencia "{{ query|escape }}"</p>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

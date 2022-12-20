@@ -1,0 +1,25 @@
+{% extends "clientes/base_generic.html"%}
+
+{% block content %}
+
+    <p>Lista de clientes en la aplicacion</p>
+    <div class="card-body">
+        <form action="" method="post"></form>
+         {% csrf_token %}
+        <table class="table table-striped">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Descripción</th>
+            </thead>
+            <tbody>
+                {% for clientes in data %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td><p>{{clientes.nombre }} {{clientes.apellido}} con dni: {{ clientes.dni}}</p></td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
